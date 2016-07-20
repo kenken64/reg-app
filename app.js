@@ -13,7 +13,7 @@ app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.post("/api/user", function (req, res) {
 
-    console.log("Relieved User Object", req.body);
+    console.log("Received User Object", req.body);
 
     res.status(200).json(req.body.user);
 });
