@@ -19,7 +19,16 @@
             contactNumber: ""
         };
 
+        self.isAgeValid = function () {
+            var date = new Date(self.user.dateOfBirth);
+            date.setFullYear(date.getFullYear() + 18);
+            return date < new Date();
+        };
+
         self.register = function () {
+            if (self.isAgeValid() == false) {
+                return;
+            }
             $http.post("/api/user", self.user)
                 .then(function () {
                     window.location = "/thank-you.html"
