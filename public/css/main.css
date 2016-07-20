@@ -1,0 +1,40 @@
+.form-control.ng-touched.ng-invalid {
+    border: thin solid #d9534f;
+}
+
+.form-control.ng-touched.ng-valid {
+    border: thin solid #419641;
+}
+
+.ng-submitted .form-control.ng-valid  {
+    border: thin solid #419641;
+
+}
+
+.ng-submitted .form-control.ng-invalid {
+    border: thin solid #d9534f;
+
+}
+
+.registration-page h1 {
+    text-align: center;
+    text-transform: uppercase;
+    border-top: thin solid #DDD;
+    border-bottom: thin solid #DDD;
+    padding: 20px 0;
+}
+
+.validation {
+    color: #d9534f;
+}
+
+.validation > div{
+    padding-top: 10px;
+}
+.validation .glyphicon {
+    margin-right: 5px;
+}
+
+.thank-you-page{
+    margin-top: 100px;
+}

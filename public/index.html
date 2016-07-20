@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" ng-app="RegApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+<div class="col-sm-2 col-lg-4"></div>
+<div ng-controller="RegistrationCtrl as ctrl" class="col-sm-8 col-lg-4 registration-page">
+    <h1>Registration Page</h1>
+    <form name="registrationForm" ng-submit="registrationForm.$valid && ctrl.register()" novalidate="">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email"
+                   class="form-control"
+                   name="email"
+                   type="email"
+                   required
+                   ng-model="ctrl.user.email"/>
+            <div class="validation" data-ng-show="registrationForm.email.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.email.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Email is mandatory.
+                </div>
+                <div data-ng-show="registrationForm.email.$error.email">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Email is invalid.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password"
+                   class="form-control"
+                   name="password"
+                   type="password"
+                   required
+                   minlength="6"
+                   ng-model="ctrl.user.password"/>
+
+            <div class="validation"  data-ng-show="registrationForm.password.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.password.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Password is required.
+                </div>
+                <div data-ng-show="registrationForm.password.$error.minlength">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Password must be atleast 6 characters long.
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword"
+                   class="form-control"
+                   name="confirmPassword"
+                   type="password"
+                   required
+                   ng-model="ctrl.user.confirmPassword"/>
+
+            <div class="validation"  data-ng-show="registrationForm.confirmPassword.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.confirmPassword.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Confirm Password is required.
+                </div>
+                <div data-ng-show="ctrl.user.password != ctrl.user.confirmPassword">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Passwords do not match
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name"
+                   class="form-control"
+                   name="name"
+                   type="text"
+                   required
+                   ng-model="ctrl.user.name"/>
+
+
+            <div class="validation"  data-ng-show="registrationForm.name.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.name.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Name is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <br/>
+            <input name="gender"
+                   type="radio"
+                   required
+                   value="M"
+                   ng-model="ctrl.user.gender"/>
+            Male
+            <br/>
+            <input name="gender"
+                   type="radio"
+                   required
+                   value="F"
+                   ng-model="ctrl.user.gender"/>
+            Female
+            <br/>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input id="dateOfBirth"
+                   class="form-control"
+                   name="dateOfBirth"
+                   type="date"
+                   required
+                   ng-model="ctrl.user.dateOfBirth"/>
+
+            <div class="validation" data-ng-show="registrationForm.dateOfBirth.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.dateOfBirth.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Date of Birth is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input id="address"
+                   class="form-control"
+                   name="address"
+                   type="text"
+                   required
+                   ng-model="ctrl.user.address"/>
+
+            <div class="validation"  data-ng-show="registrationForm.address.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.address.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Address is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input id="country"
+                   class="form-control"
+                   name="country"
+                   type="text"
+                   required
+                   ng-model="ctrl.user.country"/>
+
+            <div class="validation"  data-ng-show="registrationForm.country.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.country.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Country is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input id="contactNumber"
+                   class="form-control"
+                   name="contactNumber"
+                   type="text"
+                   required
+                   ng-pattern="/^[0-9]*$/"
+                   ng-model="ctrl.user.contactNumber"/>
+
+            <div class="validation"  data-ng-show="registrationForm.contactNumber.$touched || registrationForm.$submitted">
+                <div data-ng-show="registrationForm.contactNumber.$error.required">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Contact Number is required.
+                </div>
+                <div data-ng-show="registrationForm.contactNumber.$error.pattern">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Contact Number contains invalid characters.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <hr/>
+            <input id="submit"
+                   name="submit"
+                   type="submit"
+                   class="btn btn-success"/>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
