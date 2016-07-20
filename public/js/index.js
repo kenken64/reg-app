@@ -34,8 +34,7 @@
                     window.location = "/thank-you.html"
                 })
                 .catch(function () {
-                    self.result.success = false;
-                    self.result.message = self.message.success;
+                    alert("Oops! Some problem occurred after registration. Please try again.")
                 });
         };
 
