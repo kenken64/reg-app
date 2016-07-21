@@ -122,6 +122,10 @@
                     <span class="glyphicon glyphicon-alert"></span>
                     Date of Birth is required.
                 </div>
+                <div data-ng-show="registrationForm.dateOfBirth.$invalid">
+                    <span class="glyphicon glyphicon-alert"></span>
+                    Invalid Date.
+                </div>
                 <div data-ng-hide="ctrl.isAgeValid()">
                     <span class="glyphicon glyphicon-alert"></span>
                     You must be atleast 18 years to register.
